@@ -16,6 +16,10 @@ footer {
         max-width: 1200px;
         grid-template-columns: 1fr 1fr 1fr;
         align-items: center;
+
+        @media (max-width:601px) {
+            grid-template-columns: 1fr;
+        }
     }
 
     .footer-info {
@@ -38,12 +42,5 @@ footer {
         img {
             max-width: 50px;
         }
-    }
-}
-
-@media (max-width:600px) {
-    footer .grid-wrapper {
-        grid-template-columns: 1fr;
-        text-align: center;
     }
 }

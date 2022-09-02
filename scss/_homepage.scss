@@ -5,11 +5,20 @@ header {
     background-attachment:fixed;
     color: white;
     padding:6em 1em;
+    @media (max-width:400px) {
+        padding:2em 1em;
+    }
     text-align: center;
 
     h1 {
         font-weight: normal;
         font-size: 4em;
+        @media (max-width:700px) {
+            font-size: 2.5em;
+        }
+        @media (max-width:400px) {
+            font-size: 1.8em;
+        }
         margin-top: 0;
     }
     span {
@@ -20,33 +29,40 @@ header {
     nav {
         ul {
             font-size: 1.2em;
+            @media (max-width:400px) {
+                font-size: 1em;
+            }
             display: table;
             list-style: none;
             margin: 0 auto;
 
             li {
                 float: left;
-            }
-            li::after {
-                content: '|';
-                padding: 0 0.3em;
-            }
-            li:last-child::after {
+                @media (max-width:700px) {
+                    float: none;
+                }
+                
+                &::after {
+                    content: '|';
+                    padding: 0 0.3em;
+                    @media (max-width:700px) {
+                        display: none;
+                    }
+                }
+                &:last-child::after {
                 content: '';
+                }
             }
         }
     }
 }
-a.freepick-link,
-a.freepick-link:visited,
-a.freepick-link:focus,
-a.freepick-link:hover {
-    color:white;
+  
+a.freepick-link {
+    color: white;
     font-size: 0.7em;
     text-decoration: none;
 }
 
-/* Homepage main */
 main {
     section {
         max-width: 1200px;
@@ -54,6 +70,9 @@ main {
     }
     h2 {
         font-size: 2em;
+        @media (max-width:700px) {
+            font-size: 1.3em;
+        }
         font-weight: normal;
         text-align: center;
     }
@@ -64,6 +83,10 @@ main {
         max-width: 900px;
         margin: 4em auto;
         padding: 2em;
+        @media (max-width:600px) {
+            margin:0 auto;
+            padding: 1em;
+        }
         border: solid 1px $secondary-color;
         transition: all ease-in 0.3s;
 
@@ -72,9 +95,14 @@ main {
             border-color: $primary-color;
         }
 
-        &:hover .icon,
-        :focus .icon {
-            color: $primary-color;
+        h3 {
+            font-size: 1.4em;
+            @media (max-width:400px) {
+                font-size: 1em;
+            }
+            font-weight: normal;
+            color: $secondary-color;
+            transition: all ease-in 0.3s;
         }
 
         &:hover h3,
@@ -85,19 +113,21 @@ main {
             text-align: right;
             line-height: 1.5em;
         }
-    }
 
-    .icon {
-        font-size: 4em;
-        color: $secondary-color;
-        transition: all ease-in 0.3s;
-    }
+        .icon {
+            font-size: 4em;
+            @media (max-width:600px) {
+                font-size: 2em;                
+                line-height: 2.5em;
+            }
+            color: $secondary-color;
+            transition: all ease-in 0.3s;
+        }
 
-    h3 {
-        font-size: 1.4em;
-        font-weight: normal;
-        color: $secondary-color;
-        transition: all ease-in 0.3s;
+          &:hover .icon,
+          &:focus .icon {
+            color: $primary-color;
+        }
     }
 
     .grid-wrapper{
@@ -121,7 +151,16 @@ main {
     .grid-wrapper {
         margin: 0;
         padding: 4em 0;
+        @media (max-width:1000px) {
+            padding:4em 2em;
+        }
+        @media (max-width:800px) {
+            padding:1em 2em;
+        }
         grid-template-columns: 2fr 1fr;
+        @media (max-width:800px) {
+            grid-template-columns: 1fr;
+        }
         max-width: 900px;
         margin: 0 auto;
         align-items: center;
@@ -138,8 +177,14 @@ main {
 }
 
 #what-do-we-study {
+    @media (max-width:400px) {
+        display: none;
+    }
     .grid-wrapper {
         grid-template-columns: 1fr 1fr;
+        @media (max-width:900px) {
+            grid-template-columns: 1fr;
+        }
     }
 
     article {
@@ -166,6 +211,9 @@ main {
         background-image: url("../img/business-serious-manager-working-laptop-standing.jpg");
         background-size: cover;
         background-position: center center;
+        @media (max-width:900px) {
+            display: none;
+        }
     }
 }
 
@@ -180,6 +228,10 @@ main {
     color: white;
     text-align: center;
 
+    @media (max-width:400px) {
+        display: none;
+    }
+
     >div {
         background: rgba(0,  0, 0, 0.5);
         margin: 0;
@@ -192,6 +244,9 @@ main {
     }
     .grid-wrapper {
         grid-template-columns: 1fr 1fr;
+        @media (max-width:500px) {
+            grid-template-columns: 1fr;
+        }
     }
     h3 {
         font-size: 2em;
@@ -211,6 +266,12 @@ main {
     }
     .grid-wrapper {
         grid-template-columns: 1fr 1fr 1fr;
+        @media (max-width:1000px) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @media (max-width:700px) {
+            grid-template-columns: 1fr;
+        }
         margin-bottom: 3em;
         row-gap: 3em;
     }
@@ -221,91 +282,5 @@ main {
     img {
         max-width: 300px;
         margin-bottom: 1em;
-    }
-}
-/* --Homepage main */
-
-@media (max-width:1150px) {
-    #lessons-gallery .grid-wrapper {
-        grid-template-columns: 1fr 1fr;
-        align-items:stretch;
-    }
-}
-@media (max-width:700px) {    
-    #study-order {
-        .icon {
-            font-size: 2em;
-        }
-        .grid-wrapper>div:first-child {
-            margin-top:1em;
-        }
-        article {
-            margin:0;
-            border-bottom-width:0;
-        }
-    }
-}
-@media (max-width:600px) {
-    header {
-        h1 {
-            font-size: 2.5em;
-
-            span {
-                margin-top: 1em;
-            }
-        }
-        nav ul {
-            li {
-               float: none;
-            }
-            li::after {
-                content: '';
-            }
-        }
-    }
-
-    #lessons-gallery .grid-wrapper {
-        grid-template-columns: 1fr;
-        align-items:stretch;
-    }
-
-    #what-do-we-study {
-        .grid-wrapper {
-            grid-template-columns: 1fr;
-        }   
-        aside {
-            display: none;
-        }
-    }
-
-    #start-education-today .grid-wrapper {
-        grid-template-columns: 1fr;
-        text-align: center;
-        max-width: 100%;
-    }
-}
-@media (max-width:400px) {
-    header {
-        padding:2em 1em;
-        h1 {
-            font-size: 2em;
-        }
-    }
-
-    #study-order {
-        h2 {
-            font-size: 1.5em;
-        }
-        h3 {
-            font-size: 1.2em;
-        }
-    }
-
-    #what-do-we-study {
-        display: none;
-    }
-    
-    #promo-block-2 {
-        display: none;
     }
 }

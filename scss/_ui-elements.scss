@@ -1,4 +1,3 @@
-// _ui-elemens.scss
 button {
     background: $primary-color;
     border: $primary-color solid 1px;
@@ -15,7 +14,8 @@ button {
         background: $primary-color-focus;
         border-color: $primary-color-focus;
     }
-    .btn-outline {
+
+    &.btn-outline {
         background: transparent;
         border: white solid 1px;
         color: white;
